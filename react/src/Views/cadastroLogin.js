@@ -16,7 +16,7 @@ class CadastroLogin extends Component {
                     <section className="d-flex flex-column justify-content-around align-items-center">
 
                         <InputCustomValidation id="emailCadastro" type="Email" placeholder="Email de Cadastro" />
-                        <InputCustomValidation id="nomeUsuario" type="text" placeholder="Nome de Usu�rio" />
+                        <InputCustomValidation id="nomeUsuario" type="text" placeholder="Nome de Usuario" />
                         <InputCustomValidation id="senhaCadastro" type="password" placeholder="Senha" />
                         <InputCustomValidation id="ConfirmarSenhaCadastro" type="password" placeholder="Confirmar Senha" />
 
