@@ -20,7 +20,7 @@ class RedefinirSenha extends Component {
                         <InputCustomValidation id="confirmarSenha" type="password" placeholder="Confirmar Senha" />
 
                         <div className="box-btn d-flex flex-justify-content-around col-9  flex-column">
-                            <a id="loginBtn" href="/" className="col-12 btn btn-login shine" >Redefinir Senha</a>
+                            <button id="loginBtn" href="/" className="col-12 btn btn-login shine"  >Redefinir Senha</button>
                         </div>
                     </section>
                 </form>

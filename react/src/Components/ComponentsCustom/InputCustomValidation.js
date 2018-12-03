@@ -2,13 +2,20 @@ import React from 'react';
 import $ from 'jquery';
 
 export default class InputCustomValidation extends React.Component {
+    constructor(props){
+        super();
+        this.state = {email: props.email,
+                      nomeUsuario: props.nomeUsuario,
+                    };
+    }
 
     render() {
         return (
             <div className="box-input d-flex flex-column align-items-center">
                 <label id={"Rlbl" + this.props.id}></label>
-                <input type={this.props.type} placeholder={this.props.placeholder} className={this.props.className}
-                    id={this.props.id} onKeyDown={this.props.onKeyDown} onFocus={this.labelUp} onBlur={this.labelDown} />
+                <input onChange={this.props.onChange} type={this.props.type} placeholder={this.props.placeholder} 
+                value={this.props.value} className={this.props.className} id={this.props.id} 
+                onKeyDown={this.props.onKeyDown} onFocus={this.labelUp} onBlur={this.labelDown} />
             </div>
         )
     }
@@ -17,7 +24,7 @@ export default class InputCustomValidation extends React.Component {
 
     labelUp(e) {
         var element = $(e.target);
-        var label = $(e.target).prev().text(element.attr('placeholder'));
+        var label = element.prev().text(element.attr('placeholder'));
         $(element).removeAttr('placeholder').removeClass('validationError');
         $(label).css({
             transform: 'translateY(-25px)',
