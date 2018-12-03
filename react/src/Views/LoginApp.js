@@ -40,7 +40,7 @@ export default class LoginApp extends Component {
                         <InputCustomValidation id="emailLogin" ke={enabledBtn} type="Email" placeholder="Email"/>
                         <InputCustomValidation id="senhaLogin" blur={enabledBtn} type="password" placeholder="Senha"/>
                         <div className="box-btn d-flex flex-justify-content-around col-9  flex-column">
-                            <a id="loginBtn" href="/" className="col-12 btn btn-login shine">Entrar</a>
+                            <button id="loginBtn" href="/" className="col-12 btn btn-login shine">Entrar</button>
                             <br/>
                             <GoogleLogin/>
                             <br/>

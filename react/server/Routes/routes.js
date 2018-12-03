@@ -5,6 +5,7 @@ let server;
 routes.configuraRotas = function (express) {
     server = express;
     routes.consultaDadosMotoboy();
+    routes.CadastroMotoboy()
 };
 
 routes.consultaDadosMotoboy = function () {
@@ -17,6 +18,16 @@ routes.consultaDadosMotoboy = function () {
         }
     });
 };
+
+routes.CadastroMotoboy = function(){
+    server.post('/cadastro', async function(request, response){
+        try{
+
+        } catch(ex){
+            console.log("Erro ao efetuar ao realizar o cadastro.. " + ex)
+        }
+    })
+}
 
 module.exports = routes;
 
