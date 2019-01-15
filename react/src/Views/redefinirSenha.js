@@ -8,13 +8,14 @@ class RedefinirSenha extends Component {
 
     render() {
         return (
-            <div className="container " id="login">
+            <section className="container " id="login">
                 <div className="heading d-flex justify-content-center">
                     <img src={logo} id="logoLogin" className="logoLogin" />
                 </div>
                 <form id="formLogin" className="login-form" noValidate>
                     <section className="d-flex flex-column justify-content-around align-items-center">
 
+                        <InputCustomValidation id="emailCadastro" email={this.props.email} type="Email" placeholder="Email de Cadastro" onChange={this.handleInputChange} />
                         <InputCustomValidation id="emailAntigo" type="password" placeholder="Senha Antiga" />
                         <InputCustomValidation id="senhaNova" type="password" placeholder="Senha Nova" />
                         <InputCustomValidation id="confirmarSenha" type="password" placeholder="Confirmar Senha" />
@@ -28,13 +29,13 @@ class RedefinirSenha extends Component {
                     <div>
                         <Link to="/Cadastre-se" className="link">Inscrever-se</Link>
                     </div>
-
+                    
                     <div>
                         <Link to="/" className="link">Login</Link>
                     </div>
 
                 </div>
-            </div>
+            </section>
 
         );
     }

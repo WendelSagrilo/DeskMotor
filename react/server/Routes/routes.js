@@ -8,7 +8,7 @@ routes.configuraRotas = function (express) {
     routes.CadastroMotoboy()
 };
 
-routes.consultaDadosMotoboy = function () {
+routes.consultaDadosMotoboy = function  () {
         server.get('/dados', async function (request, response) {
         try{
            const dados =  await dataBase.any("SELECT * FROM motoboy" )

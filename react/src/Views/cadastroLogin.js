@@ -63,12 +63,9 @@ class CadastroLogin extends Component {
                         <InputCustomValidation onChange={this.handleInputChange} id="nomeUsuario" nomeUsuario={this.props.nomeUsuario} type="text" placeholder="Nome de Usuario" />
                         <InputCustomValidation onChange={this.handleInputChange} id="senhaCadastro" value={this.props.senha} type="password" placeholder="Senha" />
                         <InputCustomValidation onChange={this.handleInputChange} id="ConfirmarSenhaCadastro" value={this.props.confirmarSenha} type="password" placeholder="Confirmar Senha" />
-
+                        
                         <Button id="btn" onClick={this.sendForm}>{'Cadastrar'}</Button>
                     </section>
-                    <div id="boxMsgError" className="d-flex justify-content-center" >
-                        <span id="errorCadastro"></span>
-                    </div>
                 </form>
                 <div className=" nav-bottom-login d-flex justify-content-around ">
                     <div>
