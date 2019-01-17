@@ -6,7 +6,6 @@ import GoogleLogin from './../Components/GoogleLogin'
 import InputCustomValidation, {validationValues} from './../Components/ComponentsCustom/InputCustomValidation'
 import {Link, Route} from 'react-router-dom'
 
-
 export default class LoginApp extends Component {
     constructor() {
         super();
@@ -21,7 +20,7 @@ export default class LoginApp extends Component {
         $.ajax({
             url: "http://localhost:4000/dados",
             type: 'get',
-            contentType: "application/json; charset=utf-8",
+            contentType: "application/json; charset=utf-8", 
         }
         ).done(function (result) {
             console.log(result);

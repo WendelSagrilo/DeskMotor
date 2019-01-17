@@ -6,6 +6,7 @@ import $ from 'jquery'
 import Button from '../Components/ComponentsCustom/ButtonAcessLogin'
 import './../assets/css/login.css'
 
+
 class CadastroLogin extends Component {
     constructor() {
         super();
@@ -17,6 +18,7 @@ class CadastroLogin extends Component {
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.sendForm = this.sendForm.bind(this);
+        this.sendForm = this.sendForm.bind(this);
     }
 
     handleInputChange(e) {
@@ -24,7 +26,6 @@ class CadastroLogin extends Component {
         const value = e.target.value
         const chkPassword = $(e.target).attr("id").indexOf("senhaCadastro") === 0 ? true : false
         $("#errorCadastro").html("")
-
         switch (target) {
             case "email":
                 this.setState({ email: value })
@@ -43,12 +44,35 @@ class CadastroLogin extends Component {
 
     sendForm(e) {
         e.preventDefault();
+        var emailValido = false;
+        var email = this.state.email;
         if (this.state.senha != this.state.confirmarSenha) {
             $("#senhaCadastro,#ConfirmarSenhaCadastro").addClass("validationError")
             $("#errorCadastro").html("Erro ao confirmar senhas.")
             $("#boxMsgError").addClass("msgErro")
         }
+
+        var random = Math.floor(Math.random() * 9999)
+        $.ajax({
+            url: "http://localhost:4000/emailConfirmacaoCadastro",
+            type: 'get',
+            data: {
+                email: email,
+                title: 'Bem Vindo ao Deskmoto!! =)',
+                text: 'Agora basta digitar esta senha no aplicativo...: '+ random +'',
+            },
+            contentType: "application/json; charset=utf-8",
+        }).done(function (result) {
+            emailValido = result;
+            if(emailValido)
+                var confere = prompt("Valor digitar os 4 digitos enviados para o email ' " +email +" '")
+            else
+                alert("Favor conferir o email: " + email)
+        }).fail(function (ex) {
+            console.log(ex);
+        })
     }
+
 
     render() {
         return (
@@ -59,11 +83,11 @@ class CadastroLogin extends Component {
                 <form id="formLogin" className="login-form" noValidate>
                     <section className="d-flex flex-column justify-content-around align-items-center">
 
-                        <InputCustomValidation id="emailCadastro" email={this.props.email} type="Email" placeholder="Email de Cadastro" onChange={this.handleInputChange} />
+                        <InputCustomValidation onChange={this.handleInputChange} id="emailCadastro" email={this.props.email} type="Email" placeholder="Email de Cadastro" />
                         <InputCustomValidation onChange={this.handleInputChange} id="nomeUsuario" nomeUsuario={this.props.nomeUsuario} type="text" placeholder="Nome de Usuario" />
                         <InputCustomValidation onChange={this.handleInputChange} id="senhaCadastro" value={this.props.senha} type="password" placeholder="Senha" />
                         <InputCustomValidation onChange={this.handleInputChange} id="ConfirmarSenhaCadastro" value={this.props.confirmarSenha} type="password" placeholder="Confirmar Senha" />
-                        
+
                         <Button id="btn" onClick={this.sendForm}>{'Cadastrar'}</Button>
                     </section>
                 </form>
